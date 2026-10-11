@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en-GB" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="TravelLens combines live location, weather and currency data to create an accessible travel snapshot.">
+  <meta name="theme-color" content="#123b5d">
+  <title>TravelLens | Accessible travel planning</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="TravelLens home">
+        <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+          <circle cx="24" cy="24" r="20"></circle>
+          <path d="M4 24h40M24 4c6 6 9 13 9 20s-3 14-9 20M24 4c-6 6-9 13-9 20s3 14 9 20"></path>
+        </svg>
+        <span>TravelLens</span>
+      </a>
+
+      <nav aria-label="Primary navigation">
+        <ul class="nav-list">
+          <li><a href="#planner">Plan</a></li>
+          <li><a href="#inspiration">Inspiration</a></li>
+          <li><a href="#how-it-works">How it works</a></li>
+          <li><a href="#sources">Data sources</a></li>
+        </ul>
+      </nav>
+
+      <button class="theme-button" id="theme-toggle" type="button" aria-pressed="false">
+        <span aria-hidden="true">◐</span>
+        <span class="theme-label">Dark theme</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content" tabindex="-1">
+    <section class="hero" id="top" aria-labelledby="page-title">
+      <div class="hero-content">
+        <p class="eyebrow">Plan with live data</p>
+        <h1 id="page-title">See the practical side of your next destination</h1>
+        <p class="hero-copy">
+          Search for a city, check its current conditions and convert a travel budget using the latest available exchange rate.
+        </p>
+        <a class="primary-link" href="#planner">Create a travel snapshot</a>
+      </div>
+    </section>
+
+    <section class="inspiration-section" id="inspiration" aria-labelledby="inspiration-title">
+      <div class="section-heading">
+        <p class="eyebrow">Travel inspiration</p>
+        <h2 id="inspiration-title">A glimpse of places worth exploring</h2>
+        <p>The slideshow changes gently and can be paused at any time.</p>
+      </div>
+
+      <div
+        class="attraction-carousel"
+        id="attraction-carousel"
+        role="region"
+        aria-roledescription="carousel"
+        aria-label="Tourist attraction photographs">
+        <div class="carousel-viewport">
+          <figure class="carousel-slide is-active" data-slide="0" aria-hidden="false">
+            <img
+              src="images/paris-evening.webp"
+              width="1400"
+              height="788"
+              alt="The illuminated Eiffel Tower beside the River Seine under a deep blue evening sky">
+            <figcaption><strong>Paris, France</strong><span>The Eiffel Tower at blue hour</span></figcaption>
+          </figure>
+
+          <figure class="carousel-slide" data-slide="1" aria-hidden="true">
+            <img
+              src="images/santorini-sunset.webp"
+              width="1400"
+              height="788"
+              loading="lazy"
+              alt="Whitewashed buildings and blue-domed churches overlooking the sea at sunset in Santorini">
+            <figcaption><strong>Santorini, Greece</strong><span>Clifftop views across the Aegean Sea</span></figcaption>
+          </figure>
+
+          <figure class="carousel-slide" data-slide="2" aria-hidden="true">
+            <img
+              src="images/kyoto-twilight.webp"
+              width="1400"
+              height="788"
+              loading="lazy"
+              alt="A traditional Kyoto pagoda surrounded by red autumn leaves and warm evening lights">
+            <figcaption><strong>Kyoto, Japan</strong><span>A historic pagoda at twilight</span></figcaption>
+          </figure>
+
+          <figure class="carousel-slide" data-slide="3" aria-hidden="true">
+            <img src="images/london-night.webp" width="1400" height="788" loading="lazy" alt="Tower Bridge illuminated above the River Thames under a deep blue night sky in London">
+            <figcaption><strong>London, United Kingdom</strong><span>Tower Bridge beside the Thames at night</span></figcaption>
+          </figure>
+
+          <figure class="carousel-slide" data-slide="4" aria-hidden="true">
+            <img src="images/rome-night.webp" width="1400" height="788" loading="lazy" alt="The ancient Colosseum in Rome illuminated with warm lights beneath a blue night sky">
+            <figcaption><strong>Rome, Italy</strong><span>The Colosseum after sunset</span></figcaption>
+          </figure>
+
+          <figure class="carousel-slide" data-slide="5" aria-hidden="true">
+            <img src="images/dubai-night.webp" width="1400" height="788" loading="lazy" alt="The illuminated Dubai skyline and Burj Khalifa reflected across calm water at night">
+            <figcaption><strong>Dubai, United Arab Emirates</strong><span>A glowing skyline beside the water</span></figcaption>
+          </figure>
+
+          <figure class="carousel-slide" data-slide="6" aria-hidden="true">
+            <img src="images/new-york-night.webp" width="1400" height="788" loading="lazy" alt="The Manhattan skyline illuminated at night and reflected in the river">
+            <figcaption><strong>New York City, United States</strong><span>Manhattan lights across the river</span></figcaption>
+          </figure>
+
+          <figure class="carousel-slide" data-slide="7" aria-hidden="true">
+            <img src="images/cape-town-night.webp" width="1400" height="788" loading="lazy" alt="Cape Town waterfront illuminated at twilight with Table Mountain rising behind the city">
+            <figcaption><strong>Cape Town, South Africa</strong><span>Table Mountain above the waterfront</span></figcaption>
+          </figure>
+
+          <figure class="carousel-slide" data-slide="8" aria-hidden="true">
+            <img src="images/sydney-night.webp" width="1400" height="788" loading="lazy" alt="Sydney Opera House and Harbour Bridge illuminated and reflected on the harbour at night">
+            <figcaption><strong>Sydney, Australia</strong><span>Harbour landmarks after dark</span></figcaption>
+          </figure>
+
+          <figure class="carousel-slide" data-slide="9" aria-hidden="true">
+            <img src="images/maldives-night.webp" width="1400" height="788" loading="lazy" alt="Warmly lit overwater villas above clear tropical water beneath a starry night sky in the Maldives">
+            <figcaption><strong>Maldives</strong><span>Overwater villas beneath the stars</span></figcaption>
+          </figure>
+        </div>
+
+        <div class="carousel-controls">
+          <button class="carousel-button" id="previous-slide" type="button" aria-label="Show previous attraction">Previous</button>
+          <p class="slide-position" id="slide-position" aria-live="polite">Image 1 of 10</p>
+          <button class="carousel-button" id="toggle-slideshow" type="button" aria-pressed="false">Pause slideshow</button>
+          <button class="carousel-button" id="next-slide" type="button" aria-label="Show next attraction">Next</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="planner-section" id="planner" aria-labelledby="planner-title">
+      <div class="section-heading">
+        <p class="eyebrow">Interactive planner</p>
+        <h2 id="planner-title">Build your snapshot</h2>
+        <p>Required fields are marked with <span aria-hidden="true">*</span><span class="visually-hidden">an asterisk</span>.</p>
+      </div>
+
+      <form id="travel-form" novalidate>
+        <fieldset class="form-panel">
+          <legend>1. Find a destination</legend>
+
+          <div class="search-row">
+            <div class="field">
+              <label for="city-search">City or town <span aria-hidden="true">*</span></label>
+              <input
+                id="city-search"
+                name="citySearch"
+                type="search"
+                required
+                minlength="2"
+                maxlength="80"
+                autocomplete="off"
+                aria-describedby="city-help city-error">
+              <p class="field-help" id="city-help">Enter at least two letters, for example, Sheffield or Lagos.</p>
+              <p class="field-error" id="city-error"></p>
+            </div>
+            <button class="secondary-button search-button" id="search-button" type="button">Find locations</button>
+          </div>
+
+          <div class="field" id="location-field" hidden>
+            <label for="location-choice">Choose the correct location <span aria-hidden="true">*</span></label>
+            <select id="location-choice" name="location" required aria-describedby="location-help location-error">
+              <option value="">Select a location</option>
+            </select>
+            <p class="field-help" id="location-help">Results include the region and country where available.</p>
+            <p class="field-error" id="location-error"></p>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-panel">
+          <legend>2. Set your preferences</legend>
+
+          <div class="form-grid">
+            <div class="field">
+              <label for="budget">Travel budget <span aria-hidden="true">*</span></label>
+              <input
+                id="budget"
+                name="budget"
+                type="number"
+                required
+                min="1"
+                max="1000000"
+                step="0.01"
+                inputmode="decimal"
+                value="500"
+                aria-describedby="budget-help budget-error">
+              <p class="field-help" id="budget-help">Enter an amount between 1 and 1,000,000.</p>
+              <p class="field-error" id="budget-error"></p>
+            </div>
+
+            <div class="field">
+              <label for="base-currency">Your currency <span aria-hidden="true">*</span></label>
+              <select id="base-currency" name="baseCurrency" required aria-describedby="currency-status">
+                <option value="">Loading currencies…</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="target-currency">Destination currency <span aria-hidden="true">*</span></label>
+              <select id="target-currency" name="targetCurrency" required aria-describedby="currency-status">
+                <option value="">Loading currencies…</option>
+              </select>
+            </div>
+          </div>
+
+          <p class="field-help" id="currency-status" role="status" aria-live="polite">Currency options are loading.</p>
+
+          <fieldset class="choice-group">
+            <legend>Temperature unit</legend>
+            <div class="inline-choices">
+              <label class="choice-card">
+                <input type="radio" name="temperatureUnit" value="celsius" checked>
+                <span>Celsius °C</span>
+              </label>
+              <label class="choice-card">
+                <input type="radio" name="temperatureUnit" value="fahrenheit">
+                <span>Fahrenheit °F</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="choice-group">
+            <legend>What matters to you? <span class="optional">Optional</span></legend>
+            <div class="checkbox-grid">
+              <label class="choice-card">
+                <input type="checkbox" name="priorities" value="outdoors">
+                <span>Outdoor plans</span>
+              </label>
+              <label class="choice-card">
+                <input type="checkbox" name="priorities" value="packing">
+                <span>Packing guidance</span>
+              </label>
+              <label class="choice-card">
+                <input type="checkbox" name="priorities" value="budget">
+                <span>Budget details</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="form-actions">
+            <button class="primary-button" id="submit-button" type="submit">Generate snapshot</button>
+            <button class="text-button" type="reset">Clear form</button>
+          </div>
+        </fieldset>
+      </form>
+
+      <div class="status-message" id="app-status" role="status" aria-live="polite" aria-atomic="true"></div>
+
+      <section class="results" id="results" aria-labelledby="results-title" hidden>
+        <div class="results-heading">
+          <div>
+            <p class="eyebrow">Your live snapshot</p>
+            <h2 id="results-title" tabindex="-1">Destination results</h2>
+          </div>
+          <button class="text-button" id="save-button" type="button">Save this snapshot</button>
+        </div>
+
+        <div class="result-grid">
+          <article class="result-card destination-card" aria-labelledby="destination-title">
+            <div>
+              <p class="card-label">Destination</p>
+              <h3 id="destination-title">Location</h3>
+              <p id="destination-detail"></p>
+            </div>
+            <dl class="fact-list">
+              <div><dt>Local time zone</dt><dd id="timezone-value">—</dd></div>
+              <div><dt>Population</dt><dd id="population-value">—</dd></div>
+            </dl>
+          </article>
+
+          <article class="result-card" aria-labelledby="weather-title">
+            <p class="card-label">Current weather</p>
+            <h3 id="weather-title">Conditions</h3>
+            <p class="weather-summary"><span id="weather-icon" aria-hidden="true">☀</span> <span id="weather-description">—</span></p>
+            <dl class="fact-list">
+              <div><dt>Temperature</dt><dd id="temperature-value">—</dd></div>
+              <div><dt>Feels like</dt><dd id="feels-like-value">—</dd></div>
+              <div><dt>Humidity</dt><dd id="humidity-value">—</dd></div>
+              <div><dt>Wind</dt><dd id="wind-value">—</dd></div>
+            </dl>
+          </article>
+
+          <article class="result-card" aria-labelledby="currency-title">
+            <p class="card-label">Budget conversion</p>
+            <h3 id="currency-title">Converted budget</h3>
+            <p class="currency-total" id="converted-value">—</p>
+            <p id="rate-detail"></p>
+          </article>
+
+          <article class="result-card guidance-card" aria-labelledby="guidance-title">
+            <p class="card-label">Personalised guidance</p>
+            <h3 id="guidance-title">What to consider</h3>
+            <ul id="guidance-list"></ul>
+          </article>
+        </div>
+
+        <section class="forecast" aria-labelledby="forecast-title">
+          <h3 id="forecast-title">Five-day outlook</h3>
+          <div class="forecast-grid" id="forecast-grid"></div>
+        </section>
+
+        <p class="data-note" id="data-timestamp"></p>
+      </section>
+
+      <section class="saved-snapshot" id="saved-snapshot" aria-labelledby="saved-title" hidden>
+        <h2 id="saved-title">Saved snapshot</h2>
+        <p id="saved-summary"></p>
+        <button class="text-button" id="remove-saved-button" type="button">Remove saved snapshot</button>
+      </section>
+    </section>
+
+    <section class="info-section" id="how-it-works" aria-labelledby="how-title">
+      <div class="section-heading">
+        <p class="eyebrow">Transparent by design</p>
+        <h2 id="how-title">How TravelLens works</h2>
+      </div>
+      <ol class="process-list">
+        <li><strong>Search:</strong> location suggestions come from the Open-Meteo Geocoding API.</li>
+        <li><strong>Combine:</strong> the selected coordinates request live weather while your chosen currencies request a current conversion rate.</li>
+        <li><strong>Explain:</strong> the app presents the returned JSON data as an accessible, readable travel snapshot.</li>
+      </ol>
+      <p>Weather and exchange rates can change. TravelLens is a learning project and should not be the sole basis for financial or safety decisions.</p>
+    </section>
+
+    <section class="sources-section" id="sources" aria-labelledby="sources-title">
+      <div class="section-heading">
+        <p class="eyebrow">References and attribution</p>
+        <h2 id="sources-title">Data sources</h2>
+      </div>
+      <ul class="source-list">
+        <li><a href="https://open-meteo.com/en/docs/geocoding-api" target="_blank" rel="noopener noreferrer">Open-Meteo Geocoding API<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+        <li><a href="https://open-meteo.com/en/docs" target="_blank" rel="noopener noreferrer">Open-Meteo Weather Forecast API<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+        <li><a href="https://frankfurter.dev/" target="_blank" rel="noopener noreferrer">Frankfurter exchange rates API<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+        <li><a href="https://www.w3.org/WAI/WCAG22/quickref/" target="_blank" rel="noopener noreferrer">Web Content Accessibility Guidelines 2.2<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>TravelLens is an educational web technology project by Nurudeen.</p>
+    <a href="#top">Back to top</a>
+  </footer>
+
+  <noscript>
+    <p class="noscript-message">TravelLens requires JavaScript to retrieve live location, weather and currency information.</p>
+  </noscript>
+</body>
+</html>
